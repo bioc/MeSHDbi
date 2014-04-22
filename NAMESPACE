@@ -1,7 +1,8 @@
 import(methods)
-import(RSQLite)
-import(DBI)
+import(S4Vectors)
 import(IRanges)
+import(DBI)
+import(RSQLite)
 import(Biobase)
 
 importClassesFrom("AnnotationDbi", AnnotationDb)

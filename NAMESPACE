@@ -11,7 +11,7 @@ importMethodsFrom("AnnotationDbi", columns, keytypes, keys, select, dbconn, dbfi
 
 exportClasses("MeSHDb")
 
-exportMethods("columns", "keytypes", "keys", "select", "dbconn", "dbfile", "dbschema", "dbInfo", "species", "packageName", "nomenclature", "listDatabases")
+exportMethods("columns", "keytypes", "keys", "select", "dbconn", "dbfile", "dbschema", "dbInfo", "species", "packageName", "nomenclature", "listDatabases", "meshVersion")
 
 export(makeGeneMeSHPackage)
 export(MeSHDb)

@@ -106,7 +106,7 @@ setMethod("dbfile",
   function(x){
     return(
       paste0(
-        system.file(c("inst", "extdata"), package=x$packageName),
+        system.file(c("extdata"), package=x$packageName),
         paste0("/", x$packageName, ".sqlite")
       )
     )
@@ -158,5 +158,13 @@ setMethod("listDatabases",
   "MeSHDb",
   function(x) {
     return(dbGetQuery(x$conn, 'SELECT DISTINCT SOURCEDB FROM DATA;'))
+  }
+)
+
+## meshVersion
+setMethod("meshVersion",
+  "MeSHDb",
+  function(x){
+    return(dbGetQuery(x$conn, 'SELECT * FROM METADATA where name = "MESHVERSION";')[1,])
   }
 )

@@ -1,0 +1,11 @@
+VERSION 1.2.2
+------------------------
+   o Addition of "meshVersion" function to validate which version of MeSH is used
+
+VERSION 1.0.1
+------------------------
+   o documentation improvements
+
+VERSION 0.99.0
+------------------------
+   o Package released

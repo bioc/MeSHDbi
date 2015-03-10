@@ -8,14 +8,14 @@ require("methods", quietly = TRUE)
 .MeSHDb <- setRefClass("MeSHDb", contains="AnnotationDb")
 
 
-## Constructor
+## Constructor 
 MeSHDb <- function(pkgname){
 
   ## Inherit class, Instantiation
   .dbconn <- RSQLite::dbConnect(
-              RSQLite::SQLite(),
+              RSQLite::SQLite(), 
               paste0(
-                system.file(c("extdata"), package=pkgname),
+                system.file(c("inst", "extdata"), package=pkgname),
                 paste0("/", pkgname, ".sqlite")
               )
             )

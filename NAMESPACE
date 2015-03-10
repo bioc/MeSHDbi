@@ -3,7 +3,6 @@ import(RSQLite)
 import(DBI)
 import(IRanges)
 import(Biobase)
-import(S4Vectors)
 
 importClassesFrom("AnnotationDbi", AnnotationDb)
 

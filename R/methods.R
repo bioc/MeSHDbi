@@ -106,7 +106,7 @@ setMethod("dbfile",
   function(x){
     return(
       paste0(
-        system.file(c("extdata"), package=x$packageName),
+        system.file(c("inst", "extdata"), package=x$packageName),
         paste0("/", x$packageName, ".sqlite")
       )
     )

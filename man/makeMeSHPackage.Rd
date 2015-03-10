@@ -73,7 +73,7 @@ destination <- tempfile()
 dir.create(destination)
 
 ## makes an Organism package for human called Homo.sapiens
-makeGeneMeSHPackage(pkgname = "org.MeSH.Pae.db",
+makeGeneMeSHPackage(pkgname = "MeSH.Pae.eg.db",
 					data = PAO1,
           metadata = metaPAO1,
 					organism = "Pseudomonas aeruginosa PAO1",

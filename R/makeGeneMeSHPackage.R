@@ -11,7 +11,7 @@ makeGeneMeSHPackage <- function(pkgname,
                                 author,
                                 destDir,
                                 license="Artistic-2.0"){
- 
+
    # Validate of data
    .validateColNames1(data)
    .validateColNames2(metadata)
@@ -20,7 +20,7 @@ makeGeneMeSHPackage <- function(pkgname,
    template_path <- system.file("GeneMeSHPkg-template", package="MeSHDbi")
 
    ## We need to define some symbols in order to have the
-   ## template filled out correctly. 
+   ## template filled out correctly.
    symvals <- list(
     PKGTITLE=paste("Annotation package for the",pkgname,"object"),
     PKGDESCRIPTION=paste("Contains the",pkgname,"object",
@@ -28,12 +28,12 @@ makeGeneMeSHPackage <- function(pkgname,
     PKGVERSION=version,
     AUTHOR=author,
     MAINTAINER=maintainer,
-    LIC=license,        
+    LIC=license,
     ORGANISM=organism,
     ORGANISMBIOCVIEW=gsub(" ","_",organism),
     PKGNAME=pkgname
   )
-   
+
    ## Should never have duplicates
    if (any(duplicated(names(symvals))))
        stop("'symvals' contains duplicated symbols")
@@ -69,13 +69,13 @@ makeGeneMeSHPackage <- function(pkgname,
    conn <- dbConnect(SQLite(), dbname = new_dest_sqlite)
 
    ## insert metadata into moved sqlite database
-   dbBeginTransaction(conn)
+   dbBegin(conn)
    INSERTMETA <- "insert into METADATA values (?, ?)"
    dbGetPreparedQuery(conn, INSERTMETA, bind.data = metadata)
    dbCommit(conn)
 
    ## insert data and metadata into moved sqlite database
-   dbBeginTransaction(conn)
+   dbBegin(conn)
    INSERTDATA <- "insert into DATA values (?, ?, ?, ?, ?)"
    dbGetPreparedQuery(conn, INSERTDATA , bind.data = data)
    dbCommit(conn)
@@ -87,7 +87,7 @@ makeGeneMeSHPackage <- function(pkgname,
 .validateColNames1 <- function(data){
   if(ncol(data) != 5){
     stop("Data should has 5 columns!")
-  }  
+  }
   if(colnames(data)[1] != "GENEID"){
     stop("Please specify the name of 1st column as 'GENEID'")
   }
@@ -108,7 +108,7 @@ makeGeneMeSHPackage <- function(pkgname,
 .validateColNames2 <- function(metadata){
   if(ncol(metadata) != 2){
     stop("Meta data should has 2 columns!")
-  }  
+  }
   if(colnames(metadata)[1] != "NAME"){
     stop("Please specify the name of 1st column as 'NAME'")
   }

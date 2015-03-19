@@ -69,7 +69,7 @@
   species(object)
 }
 \arguments{
-  \item{x}{the \code{MeSHDb} object. But in practice this will mean an object derived from an \code{MeSHDb} object such as a \code{org.MeSH.Hsa.db}, \code{org.MeSH.Mmu.db} or many other org.MeSH.XXX.db (XXX means abbreviation of species name).}
+  \item{x, object}{the \code{MeSHDb} object. But in practice this will mean an object derived from an \code{MeSHDb} object such as a \code{org.MeSH.Hsa.db}, \code{org.MeSH.Mmu.db} or many other org.MeSH.XXX.db (XXX means abbreviation of species name).}
 
   \item{keys}{the keys to select records for from the database.  All possible keys are returned by using the \code{keys} method.}
 

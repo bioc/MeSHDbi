@@ -1,13 +1,13 @@
 import(methods)
-import(RSQLite)
 import(DBI)
+import(RSQLite)
+import(BiocGenerics)
+import(S4Vectors)
 import(IRanges)
 import(Biobase)
-import(S4Vectors)
 
 importClassesFrom("AnnotationDbi", AnnotationDb)
 
-importMethodsFrom("RSQLite", dbGetPreparedQuery)
 importMethodsFrom("AnnotationDbi", columns, keytypes, keys, select, dbconn, dbfile, dbschema, dbInfo, species)
 
 exportClasses("MeSHDb")

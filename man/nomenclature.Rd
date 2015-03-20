@@ -11,10 +11,10 @@
 \usage{nomenclature(x)}
 
 \arguments{
-\item{x}{\code{MeSHDb} object such as \code{org.MeSH.Mmu.db}}
+\item{x}{\code{MeSHDb} object such as \code{MeSH.Mmu.eg.db}}
 }
 \author{Koki Tsuyuzaki}
 \examples{
-# library("org.MeSH.Mmu.db")
-# nomenclature(org.MeSH.Mmu.db)
+# library("MeSH.Mmu.eg.db")
+# nomenclature(MeSH.Mmu.eg.db)
 }

@@ -11,10 +11,10 @@
 \usage{packageName(x)}
 
 \arguments{
-\item{x}{\code{MeSHDb} object such as \code{org.MeSH.Mmu.db}}
+\item{x}{\code{MeSHDb} object such as \code{MeSH.Mmu.eg.db}}
 }
 \author{Koki Tsuyuzaki}
 \examples{
-# library("org.MeSH.Mmu.db")
-# packageName(org.MeSH.Mmu.db)
+# library("MeSH.Mmu.eg.db")
+# packageName(MeSH.Mmu.eg.db)
 }

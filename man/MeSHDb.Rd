@@ -32,17 +32,17 @@
 
   \code{columns} shows which kinds of data can be returned for the
   \code{MeSHDb} object.
-  
+
   \code{keytypes} allows the user to discover which keytypes can be
   passed in to \code{select} or \code{keys} and the \code{keytype}
   argument.
-  
+
   \code{keys} returns keys for the database contained in the
   \code{MeSHDb} object .  This method is already documented in the keys manual page but is mentioned again here because it's usage with
   \code{select} is so intimate.  By default it will return the primary
   keys for the database, but if used with the \code{keytype} argument,
   it will return the keys from that keytype.
-  
+
   \code{select} will retrieve the data as a data.frame based on
   parameters for selected \code{keys}, \code{columns}, and \code{keytype} arguments.
 
@@ -69,7 +69,9 @@
   species(object)
 }
 \arguments{
-  \item{x, object}{the \code{MeSHDb} object. But in practice this will mean an object derived from an \code{MeSHDb} object such as a \code{org.MeSH.Hsa.db}, \code{org.MeSH.Mmu.db} or many other org.MeSH.XXX.db (XXX means abbreviation of species name).}
+  \item{x}{the \code{MeSHDb} object. But in practice this will mean an object derived from an \code{MeSHDb} object such as a \code{MeSH.Hsa.eg.db}, \code{MeSH.Mmu.eg.db} or many other MeSH.XXX.eg.db (XXX means abbreviation of species name).}
+
+  \item{object}{same as x}
 
   \item{keys}{the keys to select records for from the database.  All possible keys are returned by using the \code{keys} method.}
 
@@ -96,24 +98,25 @@
 }
 
 \examples{
+
 # # load a package that creates an MeSHDb object
-# library(org.MeSH.Mmu.db)
-# org.MeSH.Mmu.db
+# library(MeSH.Mmu.eg.db)
+# MeSH.Mmu.eg.db
 
 # ## then the methods can be used on this object.
-# cls <- columns(org.MeSH.Mmu.db)
+# cls <- columns(MeSH.Mmu.eg.db)
 # cls
-# kts <- keytypes(org.MeSH.Mmu.db)
+# kts <- keytypes(MeSH.Mmu.eg.db)
 # kt <- kts[2]
 # kts
-# ks <- head(keys(org.MeSH.Mmu.db, keytype=kts[2]))
+# ks <- head(keys(MeSH.Mmu.eg.db, keytype=kts[2]))
 # ks
-# res <- select(org.MeSH.Mmu.db, keys=ks, columns=cls, keytype=kt)
+# res <- select(MeSH.Mmu.eg.db, keys=ks, columns=cls, keytype=kt)
 # head(res)
 
-# dbconn(org.MeSH.Mmu.db)
-# dbfile(org.MeSH.Mmu.db)
-# dbschema(org.MeSH.Mmu.db)
-# dbInfo(org.MeSH.Mmu.db)
-# species(org.MeSH.Mmu.db)
+# dbconn(MeSH.Mmu.eg.db)
+# dbfile(MeSH.Mmu.eg.db)
+# dbschema(MeSH.Mmu.eg.db)
+# dbInfo(MeSH.Mmu.eg.db)
+# species(MeSH.Mmu.eg.db)
 }

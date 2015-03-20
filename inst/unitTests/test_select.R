@@ -3,10 +3,10 @@
 .MeSHDb <- setRefClass("MeSHDb", contains="AnnotationDb")
 
 .dbconn <- RSQLite::dbConnect(
-            RSQLite::SQLite(), 
+            RSQLite::SQLite(),
             paste0(
               system.file(c("inst", "DBschemas"), package="MeSHDbi"),
-              "/org.MeSH.XXX.db.sqlite"
+              "/MeSH.XXX.eg.db.sqlite"
             )
           )
 

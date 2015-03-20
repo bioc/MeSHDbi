@@ -1,5 +1,5 @@
 ##
-## This is for constracting original org.MeSH.XXX.db packages by end-users
+## This is for constracting original MeSH.XXX.eg.db packages by end-users
 ##
 
 makeGeneMeSHPackage <- function(pkgname,
@@ -53,7 +53,7 @@ makeGeneMeSHPackage <- function(pkgname,
                  )
 
    ## move template to dest
-   template_sqlite <- paste0(system.file("DBschemas", package = "MeSHDbi"), "/org.MeSH.XXX.db.sqlite")
+   template_sqlite <- paste0(system.file("DBschemas", package = "MeSHDbi"), "/MeSH.XXX.eg.db.sqlite")
    dir.create(paste0(destDir, "/", pkgname, "/inst/"))
    dir.create(paste0(destDir, "/", pkgname, "/inst/extdata"))
    dest_sqlitepath <- paste0(destDir, "/", pkgname, "/inst/extdata/")
@@ -61,7 +61,7 @@ makeGeneMeSHPackage <- function(pkgname,
    file.copy(from = template_sqlite, to = dest_sqlitepath)
 
    ## rename
-   old_dest_sqlite <- paste0(dest_sqlitepath, "org.MeSH.XXX.db.sqlite")
+   old_dest_sqlite <- paste0(dest_sqlitepath, "MeSH.XXX.eg.db.sqlite")
    new_dest_sqlite <- paste0(dest_sqlitepath, pkgname, ".sqlite")
    file.rename(from = old_dest_sqlite, to = new_dest_sqlite)
 

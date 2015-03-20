@@ -11,10 +11,10 @@
 \usage{listDatabases(x)}
 
 \arguments{
-\item{x}{\code{MeSHDb} object such as \code{org.MeSH.Mmu.db}}
+\item{x}{\code{MeSHDb} object such as \code{MeSH.Mmu.eg.db}}
 }
 \author{Koki Tsuyuzaki}
 \examples{
-# library("org.MeSH.Mmu.db")
-# listDatabases(org.MeSH.Mmu.db)
+# library("MeSH.Mmu.eg.db")
+# listDatabases(MeSH.Mmu.eg.db)
 }

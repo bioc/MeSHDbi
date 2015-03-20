@@ -1,13 +1,13 @@
 Package: MeSHDbi
-Title: DBI to construct MeSH-related package from sqlite file.
-Description: The package is unified implementation of MeSH.db, MeSH.AOR.db, and MeSH.PCR.db and also is interface to construct Gene-MeSH package (org.MeSH.XXX.db). loadMeSHDbiPkg import sqlite file and generate org.MeSH.XXX.db.
+Title: DBI to construct MeSH-related package from sqlite file
+Description: The package is unified implementation of MeSH.db, MeSH.AOR.db, and MeSH.PCR.db and also is interface to construct Gene-MeSH package (MeSH.XXX.eg.db). loadMeSHDbiPkg import sqlite file and generate MeSH.XXX.eg.db.
 Version: 1.3.3
 Author: Koki Tsuyuzaki
 Maintainer: Koki Tsuyuzaki <k.t.the-answer@hotmail.co.jp>
 Depends: R (>= 3.0.1)
-Imports: methods, DBI, RSQLite, BiocGenerics (>= 0.13.8), S4Vectors,
-         AnnotationDbi (>= 1.16.10), IRanges, Biobase
-Suggests: RUnit
+Imports: methods, AnnotationDbi (>= 1.16.10), DBI, RSQLite, IRanges,
+        Biobase, S4Vectors
+Suggests: RUnit, BiocGenerics
 License: Artistic-2.0
 biocViews: Annotation, AnnotationData, Infrastructure
-Packaged: 2015-03-10 10:15:42 UTC; tsuyusakikouki
+Packaged: 2015-03-20 10:15:42 UTC; tsuyusakikouki

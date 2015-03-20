@@ -1,5 +1,5 @@
 ##
-## This is for MeSH.db, MeSH.AOR.db, MeSH.PCR.db, and org.MeSH.XXX.db
+## This is for MeSH.db, MeSH.AOR.db, MeSH.PCR.db, and MeSH.XXX.eg.db
 ##
 
 .loadMeSHDbiPkg <- function (pkgname) {

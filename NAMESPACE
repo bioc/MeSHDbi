@@ -1,4 +1,5 @@
 import(methods)
+import(BiocGenerics)
 import(RSQLite)
 import(Biobase)
 

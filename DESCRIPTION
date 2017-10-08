@@ -9,4 +9,3 @@ Imports: methods, AnnotationDbi (>= 1.31.19), RSQLite, Biobase
 Suggests: RUnit
 License: Artistic-2.0
 biocViews: Annotation, AnnotationData, Infrastructure
-Packaged: 2015-03-25 10:15:42 UTC; tsuyusakikouki

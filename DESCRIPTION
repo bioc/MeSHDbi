@@ -1,7 +1,7 @@
 Package: MeSHDbi
 Title: DBI to construct MeSH-related package from sqlite file
 Description: The package is unified implementation of MeSH.db, MeSH.AOR.db, and MeSH.PCR.db and also is interface to construct Gene-MeSH package (MeSH.XXX.eg.db). loadMeSHDbiPkg import sqlite file and generate MeSH.XXX.eg.db.
-Version: 1.18.0
+Version: 1.19.0
 Author: Koki Tsuyuzaki
 Maintainer: Koki Tsuyuzaki <k.t.the-answer@hotmail.co.jp>
 Depends: R (>= 3.0.1), BiocGenerics (>= 0.15.10)

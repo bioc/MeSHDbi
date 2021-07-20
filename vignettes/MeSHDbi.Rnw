@@ -25,7 +25,7 @@
 \begin{document}
 \SweaveOpts{concordance=TRUE}
 
-\title{\bf A vignette for redirecting to the meshr package}
+\title{\bf A vignette to redirect to the meshr package}
 \author{Koki Tsuyuzaki$^{1,4}$, Gota Morota$^2$, Takeru Nakazato$^3$ and Itoshi Nikaido$^4$.}
 \maketitle
 \begin{center}
@@ -53,22 +53,5 @@ Please follow the link below
 \url{http://www.bioconductor.org/packages/release/bioc/html/meshr.html}
 \newline\newline
 \noindent
-or just type
-\newline\newline
-\noindent
-> if (!requireNamespace("BiocManager", quietly=TRUE))
-    > install.packages("BiocManager")
-
-\noindent
-> BiocManager::install("meshr")
-
-\noindent
-> library("meshr")
-
-\noindent
-> vignette("MeSH")
-\newline\newline
-\noindent
-in R console window.
 
 \end{document}

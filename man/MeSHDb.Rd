@@ -15,6 +15,9 @@
 \alias{dbschema}
 \alias{dbInfo}
 \alias{species}
+\alias{nomenclature}
+\alias{listDatabases}
+\alias{meshVersion}
 
 \alias{columns,MeSHDb-method}
 \alias{keytypes,MeSHDb-method}
@@ -25,10 +28,13 @@
 \alias{dbschema,MeSHDb-method}
 \alias{dbInfo,MeSHDb-method}
 \alias{species,MeSHDb-method}
+\alias{nomenclature,MeSHDb-method}
+\alias{listDatabases,MeSHDb-method}
+\alias{meshVersion,MeSHDb-method}
 
 \title{MeSHDb objects}
 \description{
-  \code{MeSHDb} is the simple class for providing the relationship between Entrez gene IDs and MeSH IDs. It provides the database connection and easily accessible with \code{columns}, \code{keytypes}, \code{keys} and \code{select}. Some users may use additional functions such as \code{dbconn}, \code{dbfile}, \code{dbschema}, \code{dbInfo}, and \code{species} for much complex data acquisition.
+  \code{MeSHDb} is the simple class for providing the relationship between Entrez gene IDs and MeSH IDs. It provides the database connection and easily accessible with \code{columns}, \code{keytypes}, \code{keys} and \code{select}. Some users may use additional functions such as \code{dbconn}, \code{dbfile}, \code{dbschema}, \code{dbInfo}, \code{species}, \code{nomenclature}, \code{listDatabases}, and \code{meshVersion} for much complex data acquisition.
 
   \code{columns} shows which kinds of data can be returned for the
   \code{MeSHDb} object.
@@ -56,6 +62,11 @@
 
   \code{species} returns the species name.
 
+  \code{nomenclature} returns the scientific name.
+
+  \code{listDatabases} returns the list of databases to correspond Gene ID and MeSH ID.
+
+  \code{meshVersion} returns the version of MeSH.
 }
 \usage{
   columns(x)
@@ -67,9 +78,12 @@
   dbschema(x, file = "", show.indices = FALSE)
   dbInfo(x)
   species(object)
+  nomenclature(x)
+  listDatabases(x)
+  meshVersion(x)
 }
 \arguments{
-  \item{x}{the \code{MeSHDb} object. But in practice this will mean an object derived from an \code{MeSHDb} object such as a \code{MeSH.Hsa.eg.db}, \code{MeSH.Mmu.eg.db} or many other MeSH.XXX.eg.db (XXX means abbreviation of species name).}
+  \item{x}{the \code{MeSHDb} object converted by \code{MeSHDbi::MeSHDb}.}
 
   \item{object}{same as x}
 
@@ -88,7 +102,7 @@
 }
 
 \value{
-  \code{keys}, \code{columns}, \code{keytypes}, \code{dbfile}, \code{dbInfo}, and \code{species} each return a character vector or possible values. \code{select} and \code{dbschema} each return a data.frame. \code{dbconn} returns database connection.
+  \code{keys}, \code{columns}, \code{keytypes}, \code{dbfile}, \code{dbInfo}, \code{species}, and \code{nomenclature} each return a character vector or possible values. \code{select}, \code{dbschema}, \code{listDatabases}, and \code{meshVersion} each return a data.frame. \code{dbconn} returns database connection.
 }
 
 \author{Koki Tsuyuzaki}
@@ -98,25 +112,55 @@
 }
 
 \examples{
+# library("MeSHDbi")
+# library("AnnotationHub")
 
-# # load a package that creates an MeSHDb object
-# library(MeSH.Mmu.eg.db)
-# MeSH.Mmu.eg.db
+# # Data retrieval from AnnotationHub
+# ah <- AnnotationHub()
+# dbfile <- query(ah, c("MeSHDb", "Bombyx mori", "v001"))[[1]]
 
-# ## then the methods can be used on this object.
-# cls <- columns(MeSH.Mmu.eg.db)
-# cls
-# kts <- keytypes(MeSH.Mmu.eg.db)
-# kt <- kts[2]
-# kts
-# ks <- head(keys(MeSH.Mmu.eg.db, keytype=kts[2]))
-# ks
-# res <- select(MeSH.Mmu.eg.db, keys=ks, columns=cls, keytype=kt)
-# head(res)
+# # Constructor
+# MeSH.Sil.eg.db <- MeSHDbi::MeSHDb(dbfile)
 
-# dbconn(MeSH.Mmu.eg.db)
-# dbfile(MeSH.Mmu.eg.db)
-# dbschema(MeSH.Mmu.eg.db)
-# dbInfo(MeSH.Mmu.eg.db)
-# species(MeSH.Mmu.eg.db)
+# # show
+# MeSH.Sil.eg.db
+
+# # dbconn
+# dbconn(MeSH.Sil.eg.db)
+
+# # dbfile
+# dbfile(MeSH.Sil.eg.db)
+
+# # dbschema
+# dbschema(MeSH.Sil.eg.db)
+
+# # dbInfo
+# dbInfo(MeSH.Sil.eg.db)
+
+# # species
+# species(MeSH.Sil.eg.db)
+
+# # nomenclature
+# nomenclature(MeSH.Sil.eg.db)
+
+# # listDatabases
+# listDatabases(MeSH.Sil.eg.db)
+
+# # meshVersion
+# meshVersion(MeSH.Sil.eg.db)
+
+# # columns
+# cols <- columns(MeSH.Sil.eg.db)
+
+# # keytypes
+# kys <- keytypes(MeSH.Sil.eg.db)
+
+# # keys
+# ks <- keys(MeSH.Sil.eg.db, keytype="GENEID")[seq(10)]
+
+# # select
+# out <- select(MeSH.Sil.eg.db,
+#   columns=cols,
+#   keys=ks,
+#   keytype="GENEID")
 }
